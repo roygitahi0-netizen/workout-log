@@ -34,8 +34,6 @@ def parse_date(value):
     return datetime.strptime(value, "%Y-%m-%d").date()
 
 
-# ---------------------------------------------------------------- Auth -----
-
 class Signup(Resource):
     def post(self):
         data = request.get_json() or {}
@@ -90,8 +88,6 @@ class CheckSession(Resource):
             return user.to_dict(), 200
         return {"error": "Not authorized"}, 401
 
-
-# ------------------------------------------------------------- Workouts ----
 
 class Workouts(Resource):
     @login_required
